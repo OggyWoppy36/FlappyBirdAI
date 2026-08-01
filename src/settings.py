@@ -3,6 +3,7 @@ import pygame.color as col
 # GENERAL
 WIDTH = 1280
 HEIGHT = 720
+MAX_SPEEDUP = 64
 
 # BIRD
 GRAV = 0.5

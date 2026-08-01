@@ -1,6 +1,6 @@
 import asyncio
 import pygame
-from settings import WIDTH,HEIGHT,PIPE_SPAWN,POPULATION_SIZE,START_X as BIRD_X
+from settings import WIDTH,HEIGHT,PIPE_SPAWN,POPULATION_SIZE,MAX_SPEEDUP,START_X as BIRD_X
 from bird import Bird
 from pipe import Pipe
 from genalg import next_gen
@@ -47,10 +47,12 @@ async def main():
                 running = False
                 # pygame.quit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    loops += 5
-                    if (loops > 30):
-                        loops = 1
+                if event.key == pygame.K_RIGHT:
+                    loops *= 2
+                    loops = min(MAX_SPEEDUP,loops)
+                elif event.key == pygame.K_LEFT:
+                    loops = int(loops/2)
+                    loops = max(1,loops)
                 elif event.key == pygame.K_RETURN:
                     export_data()
         
