@@ -20,16 +20,13 @@ class NeuralNetwork:
     def sigmoid(self, x):
         return 1 / (1 + math.exp(-x))
 
-    def tanh(self, x):
-        return math.tanh(x)
-
     def predict(self, input_arr):
         hidden = []
         for h in range(self.hidden_nodes):
             total = self.h_bias[h]
             for i in range(self.input_nodes):
                 total += self.ih_weights[h][i] * input_arr[i]
-            hidden.append(self.tanh(total))
+            hidden.append(math.tanh(total))
 
         output = []
         for o in range(self.output_nodes):
