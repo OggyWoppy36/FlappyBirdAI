@@ -3,6 +3,10 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+src/build/
+src/__pycache__/
+build/web-cache/
+
 # C extensions
 *.so
 
