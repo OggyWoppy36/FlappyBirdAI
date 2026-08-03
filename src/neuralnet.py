@@ -45,8 +45,8 @@ class NeuralNetwork:
                 return v + random.gauss(0, mut_mag)
             return v
 
-        mut_rate *= 0.99998
-        mut_mag *= 0.99998
+        #mut_rate *= 0.99998
+        #mut_mag *= 0.99998
 
         self.ih_weights = [[mutate_val(v) for v in row] for row in self.ih_weights]
         self.ho_weights = [[mutate_val(v) for v in row] for row in self.ho_weights]
